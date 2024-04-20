@@ -1,5 +1,8 @@
 #!/usr/bin/env node
+import yargs from "yargs";
 const API_ENDPOINT = "https://pokeapi.co/api/v2/";
+
+const { argv } = yargs(process.argv);
 
 async function printFirstFiveMoves(pokemonName) {
     const response = await fetch(`${API_ENDPOINT}/pokemon/${pokemonName}`);
@@ -9,4 +12,4 @@ async function printFirstFiveMoves(pokemonName) {
     console.log(firstFiveMoves);
 }
 
-printFirstFiveMoves("charmander");
+printFirstFiveMoves(argv.pokemon);

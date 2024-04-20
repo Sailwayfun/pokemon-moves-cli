@@ -10,5 +10,9 @@
     "sail": "index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "type": "module"
 }
