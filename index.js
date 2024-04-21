@@ -5,7 +5,7 @@ const API_ENDPOINT = "https://pokeapi.co/api/v2/";
 
 //define a program
 program.name("sail-cli")
-    .description("This is a cli tool for printing first 5 pokemon moves.")
+    .description("This is a cli tool for printing and searching for details about first 5 pokemon moves.")
     .version("0.0.1");
 
 //define commands
