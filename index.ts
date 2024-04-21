@@ -35,7 +35,6 @@ async function fetchFirstFiveMoves<T extends Moves>(pokemonName: string) {
   spinner.stop();
 
   firstFiveMoves = data.moves.map(({ move }) => move.name).slice(0, 5);
-  //   console.log(firstFiveMoves);
 }
 
 async function searchMoveDetail() {
