@@ -31,14 +31,15 @@ async function fetchFirstFiveMoves(pokemonName) {
 async function searchMoveDetail() {
     const choices = firstFiveMoves;
 
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "moveName",
-            message: "Choose one move to look up the details",
-            choices
-        }
-    ]).then(answers => fetchDetails(answers.moveName));
+    const listInquiry = {
+        type: "list",
+        name: "moveName",
+        message: "Choose one move to look up the details",
+        choices
+    };
+
+    const answers = await inquirer.prompt(listInquiry);
+    await fetchDetails(answers.moveName);
 
     async function fetchDetails(moveName) {
         const response = await fetch(`${API_ENDPOINT}/move/${moveName}`);
