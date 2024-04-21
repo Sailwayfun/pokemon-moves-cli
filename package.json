@@ -1,19 +1,26 @@
 {
   "name": "sail-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc -w",
+    "link": "npm unlink sail-cli && npm link"
   },
   "bin": {
-    "sail": "index.js"
+    "sail": "./dist/index.js"
   },
-  "author": "",
+  "author": "sailliao",
   "license": "ISC",
   "dependencies": {
     "commander": "^12.0.0",
     "inquirer": "^9.2.19"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@tsconfig/node-lts": "^20.1.3",
+    "@types/inquirer": "^9.0.7",
+    "typescript": "^5.4.5"
+  }
 }
