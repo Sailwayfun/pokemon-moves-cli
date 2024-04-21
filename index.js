@@ -1,8 +1,17 @@
 #!/usr/bin/env node
-import yargs from "yargs";
+import { program } from "commander";
 const API_ENDPOINT = "https://pokeapi.co/api/v2/";
 
-const { argv } = yargs(process.argv);
+//define a program
+program.name("sail-cli")
+    .description("This is a cli tool for printing first 5 pokemon moves.")
+    .version("0.0.1");
+
+//define commands
+program.command("print")
+    .description("Enter a pokemon name and print its first five moves.")
+    .argument('<pokemonName>', 'pokemon to search')
+    .action((pokemonName) => printFirstFiveMoves(pokemonName));
 
 async function printFirstFiveMoves(pokemonName) {
     const response = await fetch(`${API_ENDPOINT}/pokemon/${pokemonName}`);
@@ -12,4 +21,4 @@ async function printFirstFiveMoves(pokemonName) {
     console.log(firstFiveMoves);
 }
 
-printFirstFiveMoves(argv.pokemon);
+program.parse(process.argv);
